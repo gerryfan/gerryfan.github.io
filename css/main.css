@@ -1444,7 +1444,7 @@ body {
   opacity: 1;
 }
 .posts-expand .post-eof {
-  display: none;
+  display: block;
   margin: 10px auto 120px;
   width: 8%;
   height: 1px;
