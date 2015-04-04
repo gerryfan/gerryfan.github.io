@@ -144,7 +144,7 @@
 <h4 id="机器人自定位">机器人自定位</h4><blockquote>
 <p>根据自身携带的传感器获得的环境感知信息和导航地图估计自己在环境中的位置和方向。</p>
 </blockquote>
-<p>  <img src="../../img/source/_posts/天花板定位方法outine1.png" alt="天花板定位方法outine1"></p>
+<p>  <img src="http://7xibet.com1.z0.glb.clouddn.com/天花板定位方法outine1.png" alt="天花板定位方法outine1"></p>
 <hr>
 <p>  之前一直都有一个认识误区，就是在自定位的时候需要做的是图像的匹配，然后根据匹配结果进行位置确认，就是说在刚开始的时候要把整个场景扫描下，然后在机器人运动的时候可以对视野中得到的图像信息与之前扫描的信息进行对照匹配来获得位置信息。但是这样做以来计算量会特别大，而且针对不同的环境都需要进行扫描，非常不适合广泛使用。然后查找了一些关于SLAM和视觉里程计方面的资料才确定了正确的实现框架。</p>
 <hr>
@@ -153,18 +153,18 @@
 <p>根据传感器信息和自身位置信息进行预测下一位置<br>位置修正<br>地图构建</p>
 </blockquote>
 <p> 另外一个概念就是视觉里程计</p>
-<h4 id="里程计)"><a href="[http://en.wikipedia.org/wiki/Odometry](http://en.wikipedia.org/wiki/Odometry">里程计</a>)</h4><blockquote>
+<h4 id="里程计"><a href="[http://en.wikipedia.org/wiki/Odometry](http://en.wikipedia.org/wiki/Odometry">里程计</a></h4><blockquote>
 <p>里程计是一种利用从移动传感器获得的数据来估计物体位置随时间的变化而改变的方法。该方法被用在许多种机器人系统（轮式或者腿式）上面，来估计，而不是确定这些机器人相对于初始位置移动的距离。这种方法对由速度对时间积分来求得位置的估计时所产生的误差十分敏感。快速、精确的数据&gt;采集，设备标定以及处理过程对于高效的使用该方法是十分必要的。</p>
 <p>假设一个机器人在其轮子或腿关节处配备有旋转编码器等设备，当它向前移动一段时间后，想要知道大致的移动距离，借助旋转编码器，可以测量出轮&gt;子旋转的圈数，如果知道了轮子的周长，便可以计算出机器人移动的距离。</p>
 <p>假设有一个简单的机器人，配备有两个能够前后移动的轮子，这两个轮子是平行安装的，并且相距机器人的中心的距离是相等的。假如每个电机都配备&gt;有一个旋转编码器，我们便可以计算出任意一个轮子向前或向后移动一个单位时，机器人中心实际移动的距离。该单位长度为轮子周长的某一比例值，&gt;该比例依赖于编码器的精度。</p>
 <p>假设左边的轮子向前移动了一个单位，而右边的轮子保持静止，则右边的轮子可以被看做是旋转轴，而左边的轮子沿顺时针方向移动了一小段圆弧。因&gt;为我们定义的单位移动距离的值通常都很小，我们可以粗略的将该段圆弧看做是一条线段。因此，左轮的初始与最终位置点，右轮的位置点就构成一个&gt;三角形A。</p>
 <p>同时，机器人中心的初始与最终位置点，以及右轮的位置点，也构成了一个三角形B。由于机器人中心到两轮子的距离相等，同时，两三角形共用以右&gt;轮位置为顶点的角，故三角形A,B相似。在这种情况下，机器人中心位置的改变量为半个单位长度。机器人转过的角度可以用正弦定理求出。</p>
 </blockquote>
-<h4 id="视觉里程计)"><a href="[http://en.wikipedia.org/wiki/Visual_odometry](http://en.wikipedia.org/wiki/Visual_odometry">视觉里程计</a>)</h4><blockquote>
+<h4 id="视觉里程计"><a href="[http://en.wikipedia.org/wiki/Visual_odometry](http://en.wikipedia.org/wiki/Visual_odometry">视觉里程计</a></h4><blockquote>
 <p>视觉里程计是一种利用连续的图像序列来估计机器人移动距离的方法。视觉里程计增强了机器人在任何表面以任何方式移动时的导航精度。<br>视觉里程计的算法：</p>
 </blockquote>
-<p><img src="../../img/source/_posts/天花板定位方法outine2.png" alt="天花板定位方法outine2"></p>
-<h2 id=""><img src="../../img/source/_posts/天花板定位方法outine3.png" alt="天花板定位方法outine3"></h2><p>简单来说，视觉里程计的方式就是</p>
+<p><img src="http://7xibet.com1.z0.glb.clouddn.com/天花板定位方法outine2.png" alt="天花板定位方法outine2"></p>
+<h2 id=""><img src="http://7xibet.com1.z0.glb.clouddn.com/天花板定位方法outine3.png" alt="天花板定位方法outine3"></h2><p>简单来说，视觉里程计的方式就是</p>
 <ol>
 <li>首先将摄像机的运动假设为一种平滑运动模型</li>
 <li>将第i帧图像与第i+1帧图像进行对比，提取两幅图像上的特征点，并将其进行匹配</li>
@@ -300,7 +300,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器人自定位"><span class="nav-number">1.</span> <span class="nav-text">机器人自定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SLAM"><span class="nav-number">2.</span> <span class="nav-text">SLAM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#里程计)"><span class="nav-number">3.</span> <span class="nav-text">里程计)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视觉里程计)"><span class="nav-number">4.</span> <span class="nav-text">视觉里程计)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#研究框架"><span class="nav-number">1.</span> <span class="nav-text">研究框架</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器人自定位"><span class="nav-number">1.</span> <span class="nav-text">机器人自定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SLAM"><span class="nav-number">2.</span> <span class="nav-text">SLAM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#里程计"><span class="nav-number">3.</span> <span class="nav-text">里程计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视觉里程计"><span class="nav-number">4.</span> <span class="nav-text">视觉里程计</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#研究框架"><span class="nav-number">1.</span> <span class="nav-text">研究框架</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
