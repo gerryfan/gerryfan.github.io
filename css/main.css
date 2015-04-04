@@ -1445,7 +1445,7 @@ body {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 10px auto 120px;
+  margin: -30px auto 120px;
   width: 8%;
   height: 1px;
   background: #ccc;
